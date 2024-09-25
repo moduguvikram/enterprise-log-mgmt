@@ -37,6 +37,23 @@ While most of the inheritance is fine, it also inherits unwanted elements like `
 To prevent this, the project POM contains empty overrides for these elements.
 If you manually switch to a different parent and actually want the inheritance, you need to remove those overrides.
 
+Build the maven build using
 
+mvn clean install
+
+Build the spring-boot-demo using the command
 
 docker build -t spring-boot-demo .
+
+start the services
+
+docker compose -f compose.yaml up -d
+
+stop the services
+
+
+Access the kibana dashboard using the url
+
+http://localhost:5601/
+
+docker compose -f compose.yaml stop
