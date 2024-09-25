@@ -1,0 +1,18 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /logs/app.log  # Update to the correct path
+
+# Elasticsearch output
+output.elasticsearch:
+  hosts: ["http://elasticsearch:9200"]  # Change if your Elasticsearch host is different
+  index: "java-logs-%{+yyyy.MM.dd}"
+  allow_older_versions: true
+
+# Template settings
+setup.template.name: "spring-boot-demo"
+setup.template.pattern: "spring-boot-demo-*"
+
+# Optional: Enable template setup on startup
+setup.template.enabled: true
